@@ -1,3 +1,4 @@
+/*Description lors de l'ouverture d'un produit*/
 import React from "react";
 import "./DescriptionBox.css";
 
