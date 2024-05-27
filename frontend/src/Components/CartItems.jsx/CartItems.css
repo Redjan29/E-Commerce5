@@ -95,6 +95,115 @@
     color: white;
     cursor: pointer;
 }
+
+
+
+.payment-section {
+    margin-top: 40px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .payment-section h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .payment-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .payment-section form .field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .payment-section label {
+    font-size: 16px;
+    color: #555;
+  }
+  
+  .payment-section input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .payment-section .inline-fields {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .payment-section .inline-fields div {
+    flex: 1;
+  }
+  
+  .payment-section .checkbox-group {
+    display: flex;
+    align-items: center;
+  }
+  
+  .payment-section .checkbox-group input[type="checkbox"] {
+    width: auto;
+    margin-right: 10px;
+  }
+  
+  .payment-section .checkbox-group label {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+  }
+  
+  .payment-section .checkbox-group label a {
+    color: #000;
+    text-decoration: none;
+    margin-left: 5px;
+  }
+  
+  .payment-section .checkbox-group label a:hover {
+    text-decoration: underline;
+  }
+  
+  .payment-section button {
+    width: 150px;
+    padding: 10px;
+    font-size: 16px;
+    background: #ff5a5a;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    align-self: flex-start;
+  }
+  
+  .payment-section button:hover {
+    background: #ff4141;
+  }
+  
+  .payment-section .info-icon {
+    margin-left: 5px;
+    font-size: 16px;
+    color: #999;
+    cursor: pointer;
+  }
+  
+  .payment-section .error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
+  
+  
+  
+  
 @media(max-width:1280px){
     .cartitems{
         margin: 60px 8%;
@@ -149,4 +258,6 @@
         grid-template-columns: 0.5fr 3fr 0.5fr;
         gap: 10px;
     }
+
+   
 }
