@@ -1,4 +1,3 @@
-// frontend/src/components/LoginSignup.js
 import React, { useState } from 'react';
 import './CSS/LoginSignup.css';
 
@@ -7,9 +6,11 @@ const LoginSignup = () => {
   const [Prenom, setPrenom] = useState('');
   const [Email, setEmail] = useState('');
   const [Mot_de_passe, setMotDePasse] = useState('');
+  const [error, setError] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setError(''); // Clear previous errors
     fetch('http://localhost:5000/api/users/register', {
       method: 'POST',
       headers: {
@@ -22,12 +23,18 @@ const LoginSignup = () => {
         Mot_de_passe,
       }),
     })
-    .then(response => response.json())
+    .then(response => {
+      if (!response.ok) {
+        return response.json().then(error => { throw new Error(error.message); });
+      }
+      return response.json();
+    })
     .then(data => {
       console.log('Success:', data);
     })
     .catch((error) => {
       console.error('Error:', error);
+      setError(`Error: ${error.message}`);
     });
   };
 
@@ -35,6 +42,7 @@ const LoginSignup = () => {
     <div className='loginsignup'>
       <div className="loginsignup-container">
         <h1>Sign Up</h1>
+        {error && <p className="error-message">{error}</p>}
         <form onSubmit={handleSubmit}>
           <div className="loginsignup-fields">
             <input type="text" placeholder='Nom' value={Nom} onChange={(e) => setNom(e.target.value)} />
