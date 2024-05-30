@@ -1,17 +1,18 @@
-// backend/controllers/userController.js
-const Utilisateur = require('../models/user');
+const bcrypt = require('bcrypt');
+const User = require('../models/user');
 
 exports.registerUser = async (req, res) => {
   const { Nom, Prenom, Email, Mot_de_passe } = req.body;
 
-  console.log('Received data:', req.body);
-
   try {
-    const newUser = await Utilisateur.create({ Nom, Prenom, Email, Mot_de_passe });
-    console.log('User created:', newUser);
+    console.log('Registering user with email:', Email);
+    const hashedPassword = await bcrypt.hash(Mot_de_passe, 10);
+    console.log('Hashed password:', hashedPassword);
+    const newUser = await User.create({ Nom, Prenom, Email, Mot_de_passe: hashedPassword });
+    console.log('User registered:', newUser);
     res.status(201).json(newUser);
   } catch (error) {
-    console.error('Error while creating user:', error);
+    console.error('Error during registration:', error.message);
     res.status(400).json({ message: error.message });
   }
 };

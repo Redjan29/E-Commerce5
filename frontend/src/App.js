@@ -12,7 +12,6 @@ import LoginSignup from "./Pages/LoginSignup";
 import Login from "./Pages/Login";
 
 function App() {
-
   return (
     <div>
       <Router>
@@ -27,7 +26,7 @@ function App() {
           </Route>
           <Route path="/cart" element={<Cart />} />
           <Route path="/LoginSignup" element={<LoginSignup/>} />
-          <Route path="/Login" element={<Login />} /> 
+          <Route path="/Login" element={<Login />} />
         </Routes>
         <Footer />
       </Router>

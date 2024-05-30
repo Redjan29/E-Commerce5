@@ -7,10 +7,13 @@ const LoginSignup = () => {
   const [Email, setEmail] = useState('');
   const [Mot_de_passe, setMotDePasse] = useState('');
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setError(''); // Clear previous errors
+    setError(''); // Effacer les erreurs précédentes
+    setSuccess(''); // Effacer les messages de succès précédents
+
     fetch('http://localhost:5000/api/users/register', {
       method: 'POST',
       headers: {
@@ -31,6 +34,7 @@ const LoginSignup = () => {
     })
     .then(data => {
       console.log('Success:', data);
+      setSuccess('Inscription avec succès'); // Afficher le message de succès
     })
     .catch((error) => {
       console.error('Error:', error);
@@ -43,6 +47,7 @@ const LoginSignup = () => {
       <div className="loginsignup-container">
         <h1>Sign Up</h1>
         {error && <p className="error-message">{error}</p>}
+        {success && <p className="success-message">{success}</p>}
         <form onSubmit={handleSubmit}>
           <div className="loginsignup-fields">
             <input type="text" placeholder='Nom' value={Nom} onChange={(e) => setNom(e.target.value)} />
@@ -59,7 +64,7 @@ const LoginSignup = () => {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default LoginSignup;
