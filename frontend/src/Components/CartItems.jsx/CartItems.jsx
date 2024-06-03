@@ -77,16 +77,16 @@ const CartItems = () => {
       </div>
       <hr />
       {all_product.map((e) => {
-        if (cartItems[e.id] > 0) {
+        if (cartItems[e.Id_Produit] > 0) {
           return (
-            <div key={e.id}>
+            <div key={e.Id_Produit}>
               <div className="cartitems-format cartitems-format-main">
-                <img src={e.image} alt="" className='carticon-product-icon' />
-                <p>{e.name}</p>
-                <p>${e.new_price}</p>
-                <button className='cartitems-quantity'>{cartItems[e.id]}</button>
-                <p>${e.new_price * cartItems[e.id]}</p>
-                <img className='cartitems-remove-icon' src={remove_icon} onClick={() => { removeFromCart(e.id) }} alt="" />
+                <img src={`http://localhost:5001/images/${e.Image}`} alt={e.Titre} className='carticon-product-icon' />
+                <p>{e.Titre}</p>
+                <p>${e.Prix}</p>
+                <button className='cartitems-quantity'>{cartItems[e.Id_Produit]}</button>
+                <p>${e.Prix * cartItems[e.Id_Produit]}</p>
+                <img className='cartitems-remove-icon' src={remove_icon} onClick={() => { removeFromCart(e.Id_Produit) }} alt="" />
               </div>
               <hr />
             </div>
