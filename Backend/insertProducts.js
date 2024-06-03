@@ -1,4 +1,3 @@
-// backend/insertProducts.js
 const path = require('path');
 const sequelize = require('./config/database');
 const Product = require('./models/product');
