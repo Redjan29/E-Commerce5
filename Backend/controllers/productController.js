@@ -1,3 +1,4 @@
+// backend/controllers/productController.js
 const Product = require('../models/product');
 
 exports.getProducts = async (req, res) => {

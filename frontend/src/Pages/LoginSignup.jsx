@@ -14,7 +14,7 @@ const LoginSignup = () => {
     setError(''); // Effacer les erreurs précédentes
     setSuccess(''); // Effacer les messages de succès précédents
 
-    fetch('http://localhost:5000/api/users/register', {
+    fetch('http://localhost:5001/api/users/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

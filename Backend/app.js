@@ -11,7 +11,7 @@ const app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
-app.use(morgan('dev')); // Ajoutez cette ligne pour utiliser morgan
+app.use(morgan('dev'));
 app.use('/api/users', userRoutes);
 app.use('/api/products', productRoutes);
 
@@ -23,9 +23,5 @@ sequelize.sync()
     console.log('Database & tables created!');
   })
   .catch(err => console.log(err));
-
-app.listen(5000, () => {
-  console.log('Server is running on port 5000');
-});
 
 module.exports = app;

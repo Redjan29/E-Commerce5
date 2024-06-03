@@ -14,7 +14,7 @@ const Login = () => {
 
     console.log('Attempting login with:', { Email, Mot_de_passe });
 
-    fetch('http://localhost:5000/api/users/login22', { // Assurez-vous que cette URL correspond à la nouvelle route
+    fetch('http://localhost:5001/api/users/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -34,7 +34,7 @@ const Login = () => {
       console.log('Login successful:', data);
       localStorage.setItem('token', data.token);
       setSuccess('Login successful'); // Set success message
-      window.location.href = '/dashboard'; // Replace '/dashboard' with your protected route
+      window.location.href = '/Dashboard'; // Replace '/dashboard' with your protected route
     })
     .catch((error) => {
       console.error('Error:', error);
